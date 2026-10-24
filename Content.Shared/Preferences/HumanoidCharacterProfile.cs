@@ -140,6 +140,8 @@ namespace Content.Shared.Preferences
         public ProtoId<MotivePrototype>? Motive = null;
         [DataField]
         public ProtoId<TurningPointPrototype>? TurningPoint = null;
+        [DataField]
+        public ProtoId<AffiliationPrototype>? Affiliation = null;
 
         public HumanoidCharacterProfile(
             string name,
@@ -159,7 +161,8 @@ namespace Content.Shared.Preferences
             ProtoId<AlignmentPrototype>? alignment = null,
             ProtoId<UniverseOriginPrototype>? universeOrigin = null,
             ProtoId<MotivePrototype>? motive = null,
-            ProtoId<TurningPointPrototype>? turningPoint = null)
+            ProtoId<TurningPointPrototype>? turningPoint = null,
+            ProtoId<AffiliationPrototype>? affiliation = null)
         {
             Name = name;
             FlavorText = flavortext;
@@ -179,6 +182,7 @@ namespace Content.Shared.Preferences
             UniverseOrigin = universeOrigin;
             Motive = motive;
             TurningPoint = turningPoint;
+            Affiliation = affiliation;
 
             var hasHighPrority = false;
             foreach (var (key, value) in _jobPriorities)
@@ -214,7 +218,8 @@ namespace Content.Shared.Preferences
                 other.Alignment,
                 other.UniverseOrigin,
                 other.Motive,
-                other.TurningPoint)
+                other.TurningPoint,
+                other.Affiliation)
         {
         }
 
@@ -396,6 +401,7 @@ namespace Content.Shared.Preferences
             profile.UniverseOrigin = baseProfile.UniverseOrigin;
             profile.Motive = baseProfile.Motive;
             profile.TurningPoint = baseProfile.TurningPoint;
+            profile.Affiliation = baseProfile.Affiliation;
             return profile;
         }
 

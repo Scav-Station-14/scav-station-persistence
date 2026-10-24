@@ -99,6 +99,8 @@ public partial class CrewMetaRecord
     [DataField]
     public ProtoId<TurningPointPrototype> TurningPoint = "ChosenByAuthority";
     [DataField]
+    public ProtoId<AffiliationPrototype> Affiliation = "Unaffiliated";
+    [DataField]
     public Dictionary<ProtoId<MetaFactionPrototype>, int> MetaFactionReputations = new();
     [DataField]
     public Dictionary<string, DirectMessageConversation> DirectMessageConversations { get; set; } = new();

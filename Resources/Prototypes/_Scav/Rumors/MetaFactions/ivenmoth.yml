@@ -1,0 +1,57 @@
+- type: metaFaction
+  id: Ivenmoth
+  name: Tradehouse Ivenmoth
+  description: "Tradehouse Ivenmoth."
+  rumors:
+    - BountyBasicGeneral
+    - BountyBasicScience
+    - ReceiveMailFriendly
+  color: Red
+  levels:
+    Ivenmoth2: 150
+    Ivenmoth3: 500
+    Ivenmoth4: 1000
+  order: 0
+
+- type: metaFactionLevel
+  id: Ivenmoth2
+  name: Associate
+  rumorRewards:
+    #- IvenmothUpgradeModule
+    - TradeGood
+    #- IvenmothCodexFragment
+    - GrandLottery
+  rewardsToOffer: 2
+
+- type: metaFactionLevel
+  id: Ivenmoth3
+  name: Officer
+  rumorRewards:
+    #- IvenmothUpgradeModule
+    - TradeGood
+    #- IvenmothCodexFragment
+    - VestArmor
+    - VestArmorElite
+    - Defib
+    - Microwave
+    - FlashCamera
+    - HyperzineKit
+    - RaidSuit
+    - Hushpup
+  rewardsToOffer: 2
+
+- type: metaFactionLevel
+  id: Ivenmoth4
+  name: High Officer
+  rumorRewards:
+    #- IvenmothUpgradeModule
+    - TradeGood
+    #- IvenmothCodexFragment
+    - ESword
+    - ScramImplanter
+    - C-20r
+    - GlovesNorthStar
+    - StealthBox
+    - ChameleonProjector
+  rewardsToOffer: 2
+

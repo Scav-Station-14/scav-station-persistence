@@ -1108,6 +1108,10 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Affiliation")
+                        .HasColumnType("text")
+                        .HasColumnName("affiliation");
+
                     b.Property<int>("Age")
                         .HasColumnType("integer")
                         .HasColumnName("age");

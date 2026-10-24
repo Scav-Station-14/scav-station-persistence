@@ -38,11 +38,6 @@ public sealed partial class JobNetMenu : DefaultWindow
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         MasterTabContainer.SetTabTitle(0, "Job Network");
-        MasterTabContainer.SetTabTitle(1, "Insights");
-        MasterTabContainer.SetTabTitle(2, "Sector");
-        MasterTabContainer.SetTabTitle(3, "Upgrades");
-        MasterTabContainer.SetTabTitle(4, "Rumors");
-        MasterTabContainer.SetTabTitle(5, "Messages");
     }
 
     public void UpdateState(JobNetUpdateState state)
@@ -129,7 +124,7 @@ public sealed partial class JobNetMenu : DefaultWindow
         if (localPlayer != null)
             charName = _entityManager.GetComponent<MetaDataComponent>(localPlayer.Value).EntityName;
 
-        var codexCategories = _prototypeManager.EnumeratePrototypes<CodexCategoryPrototype>();
+        /*var codexCategories = _prototypeManager.EnumeratePrototypes<CodexCategoryPrototype>();
         Dictionary<ProtoId<CodexCategoryPrototype>, List<ProtoId<CodexEntryPrototype>>> sortedCodex = new();
         foreach (var codexCategory in codexCategories.OrderBy(p => p.Order).ThenBy(p => p.Name).ToList())
         {
@@ -166,7 +161,7 @@ public sealed partial class JobNetMenu : DefaultWindow
         {
             InsightBoxFragment box = new(insightCategory, state.UnlockedInsights, state.UnspentInsights > 0, this, state.SectorAwake);
             InsightsBox.AddChild(box);
-        }
+        }*/
         _prototypeManager.Resolve(state.Level, out var levelProto);
         if (levelProto != null)
         {

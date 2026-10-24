@@ -137,7 +137,7 @@ namespace Content.Client.Lobby.UI
             {
                 SelectAlignment(args);
             };
-            BGButton.AddItem("*UNSELECTED*");
+            /*BGButton.AddItem("*UNSELECTED*");
             foreach (var background in _prototypeManager.EnumeratePrototypes<UniverseOriginPrototype>())
             {
                 BGButton.AddItem(background.Name);
@@ -165,7 +165,19 @@ namespace Content.Client.Lobby.UI
             TurningPointButton.OnItemSelected += args =>
             {
                 SelectTurningPoint(args);
+            };*/
+
+            AffiliationButton.AddItem("*UNSELECTED*");
+            foreach (var background in _prototypeManager.EnumeratePrototypes<AffiliationPrototype>())
+            {
+                AffiliationButton.AddItem(background.Name);
+            }
+
+            AffiliationButton.OnItemSelected += args =>
+            {
+                SelectAffiliation(args);
             };
+
             Markings.SetModel(_markingsModel);
 
             ImportButton.OnPressed += args =>
@@ -377,7 +389,7 @@ namespace Content.Client.Lobby.UI
             CheckReady();
         }
 
-        private void SelectTurningPoint(OptionButton.ItemSelectedEventArgs args)
+        /*private void SelectTurningPoint(OptionButton.ItemSelectedEventArgs args)
         {
             TurningPointButton.SelectId(args.Id);
             if (args.Id == 0)
@@ -468,6 +480,37 @@ namespace Content.Client.Lobby.UI
                 BGEffectsLabel.Text += $"\n{effectProto.Description}";
             }
             Profile?.UniverseOrigin = e.ID;
+            CheckReady();
+            RefreshBackgroundTraits();
+            return;
+        }*/
+
+        private void SelectAffiliation(OptionButton.ItemSelectedEventArgs args)
+        {
+            AffiliationButton.SelectId(args.Id);
+            if (args.Id == 0)
+            {
+                AffiliationTitleLabel.Text = string.Empty;
+                AffiliationDescLabel.Text = string.Empty;
+                Profile?.Affiliation = null;
+                CheckReady();
+                RefreshBackgroundTraits();
+                return;
+            }
+            var affiliationsList = _prototypeManager.EnumeratePrototypes<AffiliationPrototype>().ToList();
+            var ind = args.Id - 1;
+            if (ind < 0 || ind >= affiliationsList.Count)
+                return;
+            var e = affiliationsList.ElementAt(ind);
+            AffiliationTitleLabel.Text = e.Name;
+            AffiliationDescLabel.Text = e.Description;
+            AffiliationEffectsLabel.Text = "";
+            foreach (var effect in e.Effects)
+            {
+                var effectProto = _prototypeManager.Index<BackgroundEffectPrototype>(effect);
+                AffiliationEffectsLabel.Text += $"\n{effectProto.Description}";
+            }
+            Profile?.Affiliation = e.ID;
             CheckReady();
             RefreshBackgroundTraits();
             return;
@@ -568,6 +611,21 @@ namespace Content.Client.Lobby.UI
                         }
                     }
                 }
+                if (Profile.Affiliation != null)
+                {
+                    var background = _prototypeManager.Index<AffiliationPrototype>(Profile.Affiliation);
+                    foreach (var effect in background.Effects)
+                    {
+                        var effectProto = _prototypeManager.Index<BackgroundEffectPrototype>(effect);
+                        if (effectProto.Traits.Count > 0)
+                        {
+                            foreach (var trait in effectProto.Traits)
+                            {
+                                AddBackgroundTrait(trait);
+                            }
+                        }
+                    }
+                }
             }
         }
         private void AddBackgroundTrait(ProtoId<TraitPrototype> traitId)
@@ -598,7 +656,7 @@ namespace Content.Client.Lobby.UI
                 }
             }
 #endif
-            bool originSelected = false;
+            /*bool originSelected = false;
             if (Profile?.UniverseOrigin != null)
             {
                 originSelected = true;
@@ -642,6 +700,21 @@ namespace Content.Client.Lobby.UI
                     turningPointSelected = true;
                 }
             }
+#endif*/
+            bool affiliationSelected = false;
+            if (Profile?.Affiliation != null)
+            {
+                affiliationSelected = true;
+            }
+#if DEBUG
+            else
+            {
+                if (_prototypeManager.TryGetRandom<AffiliationPrototype>(random, out var origin) && origin != null)
+                {
+                    Profile?.AffiliationPrototype = origin.ID;
+                    originSelected = true;
+                }
+            }
 #endif
             bool nameSelected = false;
             if (Profile?.Name != "")
@@ -656,7 +729,7 @@ namespace Content.Client.Lobby.UI
             }
 #endif
 
-            if (alignmentSelected && originSelected && motiveSelected && turningPointSelected && nameSelected)
+            if (alignmentSelected && affiliationSelected && nameSelected) //Scav: removed origin, motive, and turning point
             {
                 SaveButton.Disabled = false;
             }
@@ -664,7 +737,7 @@ namespace Content.Client.Lobby.UI
             {
                 SaveButton.Disabled = true;
             }
-            if (!alignmentSelected || !originSelected || !motiveSelected)
+            if (!alignmentSelected || !affiliationSelected) //scav: removed origin and motive
             {
                 RequirementsLbl.Visible = true;
                 RequirementsLbl.Text = "[color=red]Complete the Background Page.";
@@ -673,12 +746,12 @@ namespace Content.Client.Lobby.UI
             {
                 RequirementsLbl.Visible = false;
             }
-            if (!turningPointSelected)
+            /*if (!turningPointSelected)
             {
                 RequirementsJourneyLbl.Text = "[color=red]Complete the Journey Page.";
                 RequirementsJourneyLbl.Visible = true;
             }
-            else
+            else*/
             {
                 RequirementsJourneyLbl.Visible = false;
             }
@@ -771,7 +844,7 @@ namespace Content.Client.Lobby.UI
 
         public void UpdateBackgrounds()
         {
-            var motiveStatus = Profile?.Motive;
+            /*var motiveStatus = Profile?.Motive;
             if (motiveStatus != null)
             {
                 var ind = 0;
@@ -826,7 +899,7 @@ namespace Content.Client.Lobby.UI
                 BGTitleLabel.Text = string.Empty;
                 BGDescLabel.Text = string.Empty;
                 BGEffectsLabel.Text = string.Empty;
-            }
+            }*/
             var alignmentStatus = Profile?.Alignment;
             if (alignmentStatus != null)
             {
@@ -851,6 +924,37 @@ namespace Content.Client.Lobby.UI
             else
             {
                 AlignmentButton.SelectId(0);
+                AlignTitleLabel.Text = string.Empty;
+                AlignDescLabel.Text = string.Empty;
+                AlignEffectsLabel.Text = string.Empty;
+            }
+            CheckReady();
+            RefreshBackgroundTraits();
+
+            var affiliationStatus = Profile?.Affiliation;
+            if (affiliationStatus != null)
+            {
+                var ind = 0;
+                foreach (var affiliation in _prototypeManager.EnumeratePrototypes<AffiliationPrototype>())
+                {
+                    ind++;
+                    if (affiliation.ID == affiliationStatus)
+                    {
+                        AffiliationButton.SelectId(ind);
+                        AlignTitleLabel.Text = affiliation.Name;
+                        AlignDescLabel.Text = affiliation.Description;
+                        AlignEffectsLabel.Text = "";
+                        foreach (var effect in affiliation.Effects)
+                        {
+                            var effectProto = _prototypeManager.Index<BackgroundEffectPrototype>(effect);
+                            AlignEffectsLabel.Text += $"\n{effectProto.Description}";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                AffiliationButton.SelectId(0);
                 AlignTitleLabel.Text = string.Empty;
                 AlignDescLabel.Text = string.Empty;
                 AlignEffectsLabel.Text = string.Empty;

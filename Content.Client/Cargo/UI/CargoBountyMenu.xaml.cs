@@ -116,7 +116,7 @@ public sealed partial class CargoBountyMenu : FancyWindow
         bc.HorizontalExpand = true;
         sc.AddChild(bc);
         MasterTabContainer.AddChild(sc);
-        MasterTabContainer.SetTabTitle(MasterTabContainer.ChildCount - 1, "Rumors");
+        MasterTabContainer.SetTabTitle(MasterTabContainer.ChildCount - 1, "Contracts");
         foreach (var b in _lastBountyMsg.RumorBounties)
         {
             if (b.TradeStationUID != SelectedTrade)

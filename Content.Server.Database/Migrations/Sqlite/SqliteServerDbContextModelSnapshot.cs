@@ -1043,6 +1043,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("profile_id");
 
+                    b.Property<string>("Affiliation")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("affiliation");
+
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");

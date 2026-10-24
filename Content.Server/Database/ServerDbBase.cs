@@ -224,6 +224,7 @@ namespace Content.Server.Database
             if(humanoid.UniverseOrigin != null) profile.Origin = humanoid.UniverseOrigin.ToString();
             if(humanoid.Motive != null) profile.Motive = humanoid.Motive.ToString();
             if(humanoid.TurningPoint != null) profile.TurningPoint = humanoid.TurningPoint.ToString();
+            if(humanoid.Affiliation != null) profile.Affiliation = humanoid.Affiliation.ToString();
 
             // support for downgrades - at some point this should be removed
             var legacyMarkings = appearance.Markings

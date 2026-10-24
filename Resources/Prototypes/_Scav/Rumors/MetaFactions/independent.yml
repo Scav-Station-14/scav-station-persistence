@@ -1,0 +1,55 @@
+- type: metaFaction
+  id: Independent
+  name: The Independent Spacer's Guild
+  description: "ISG."
+  rumors:
+    - BountyBasicGeneral
+  color: LightGray
+  levels:
+    Independent2: 150
+    Independent3: 500
+    Independent4: 1000
+  order: 0
+
+- type: metaFactionLevel
+  id: Independent2
+  name: Associate
+  rumorRewards:
+    #- IndependentUpgradeModule
+    - TradeGood
+    #- IndependentCodexFragment
+    - GrandLottery
+  rewardsToOffer: 2
+
+- type: metaFactionLevel
+  id: Independent3
+  name: Officer
+  rumorRewards:
+    #- IndependentUpgradeModule
+    - TradeGood
+    #- IndependentCodexFragment
+    - VestArmor
+    - VestArmorElite
+    - Defib
+    - Microwave
+    - FlashCamera
+    - HyperzineKit
+    - RaidSuit
+    - Hushpup
+  rewardsToOffer: 2
+
+- type: metaFactionLevel
+  id: Independent4
+  name: Knight
+  rumorRewards:
+    #- IndependentUpgradeModule
+    - TradeGood
+    #- IndependentCodexFragment
+    - ESword
+    - ScramImplanter
+    - C-20r
+    - GlovesNorthStar
+    - StealthBox
+    - ChameleonProjector
+  rewardsToOffer: 2
+

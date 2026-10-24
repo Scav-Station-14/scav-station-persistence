@@ -77,6 +77,11 @@ public sealed partial class CharacterBackgroundSystem : EntitySystem
             var alignment = ProtoMan.Index<TurningPointPrototype>(profile.TurningPoint);
             effects.AddRange(alignment.Effects);
         }
+        if (profile.Affiliation != null)
+        {
+            var affiliation = ProtoMan.Index<AffiliationPrototype>(profile.Affiliation);
+            effects.AddRange(affiliation.Effects);
+        }
         foreach (var effect in effects)
         {
             if (!ProtoMan.Resolve(effect, out var effectProto))

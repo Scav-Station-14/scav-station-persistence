@@ -1,13 +1,12 @@
 - type: metaFaction
   id: Green
   name: Nanotrasen
-  description: "Nanotrasen controls the Green Universe."
+  description: "Nanotrasen, the largest megacorporation in the galaxy."
   rumors:
-    - DrinkBasicFriendly
-    - EatBasicFriendly
-    - PrayBasicFriendly
+    - BountyBasicGeneral
+    - BountyBasicScience
     - ReceiveMailFriendly
-  color: Green
+  color: DarkBlue
   levels:
     Green2: 150
     Green3: 500
@@ -19,9 +18,9 @@
   id: Green2
   name: Associate
   rumorRewards:
-    - GreenUpgradeModule
+    # - GreenUpgradeModule
     - TradeGood
-    - GreenCodexFragment
+    # - GreenCodexFragment
     - GreenPlasmaCrate
     - GreenMerchCrate
   rewardsToOffer: 2
@@ -31,8 +30,8 @@
   id: Green3
   name: Officer
   rumorRewards:
-    - GreenUpgradeModule
-    - GreenCodexFragment
+    # - GreenUpgradeModule
+    # - GreenCodexFragment
     - TradeGood
     - GreenFlippoWelder
     - GreenPhoronCrate
@@ -49,8 +48,8 @@
   id: Green4
   name: Executive
   rumorRewards:
-    - GreenUpgradeModule
-    - GreenCodexFragment
+    # - GreenUpgradeModule
+    # - GreenCodexFragment
     - TradeGood
     - StorageImplanter
     - EShield

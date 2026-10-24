@@ -354,6 +354,9 @@ namespace Content.Server.Database
         public string? Origin { get; set; } = null!;
         public string? Motive { get; set; } = null!;
         public string? TurningPoint { get; set; } = null!;
+
+        public string? Affiliation { get; set; } = null!;
+
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 
         public int PreferenceId { get; set; }

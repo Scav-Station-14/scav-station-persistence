@@ -11,7 +11,7 @@
             <Label Name="AccountBalanceLabel" Text="" />
         </BoxContainer>
         <TabContainer Name="MasterTabContainer"  VerticalExpand="True">
-            <BoxContainer Orientation="Vertical" Access="Public" Margin="10 10 10 10">
+            <BoxContainer Orientation="Vertical" Name="JobNetwork" Access="Public" Margin="10 10 10 10">
                 <BoxContainer Orientation="Horizontal" >
                     <Label Text="Currently Working For:" Margin="0 0 10 0"
                          StyleClasses="LabelKeyText" />
@@ -50,12 +50,12 @@
                     </BoxContainer>
                 </BoxContainer>
             </BoxContainer>
-            <BoxContainer Orientation="Vertical" Access="Public">
+            <!--<BoxContainer Orientation="Vertical" Name="Insights" Access="Public">
                 <TabContainer Name="HistoryTabContainer"  VerticalExpand="True">
                     <ScrollContainer Name="Codex" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
                         <BoxContainer Orientation="Vertical">
                             <TabContainer VerticalExpand="True" HorizontalExpand="True" Name="CodexCategoryTC">
-                                
+
                             </TabContainer>
                         </BoxContainer>
                     </ScrollContainer>
@@ -80,8 +80,8 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </TabContainer>
-            </BoxContainer>
-            <BoxContainer Orientation="Vertical" VerticalExpand="True">
+            </BoxContainer>-->
+            <BoxContainer Orientation="Vertical" Name="Sector" VerticalExpand="True">
                 <TabContainer Name="SectorTabContainer" VerticalExpand="True">
                     <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False" Name="Status">
                         <BoxContainer Orientation="Vertical" Margin="15">
@@ -109,7 +109,7 @@
                     </ScrollContainer>
                 </TabContainer>
             </BoxContainer>
-            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Name="Upgrades" HScrollEnabled="False">
                 <BoxContainer Orientation="Vertical" Margin="15">
                     <Control MinHeight="5"/>
                     <BoxContainer Orientation="Horizontal">
@@ -158,7 +158,7 @@
 
             </ScrollContainer>
 
-            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Name="Contracts" HScrollEnabled="False">
                 <BoxContainer Orientation="Vertical">
                     <TabContainer VerticalExpand="True">
                         <BoxContainer Name="Current" Orientation="Vertical">
@@ -179,13 +179,13 @@
                                 <RichTextLabel Name="RewardCooldownLbl" />
                             </BoxContainer>
                             <TabContainer VerticalExpand="True" Name="RumorRewardsTC">
-                                
+
                             </TabContainer>
                         </BoxContainer>
                     </TabContainer>
                 </BoxContainer>
             </ScrollContainer>
-            <BoxContainer Orientation="Vertical" Name="DirectMessages" Margin="10 10 10 10">
+            <BoxContainer Orientation="Vertical" Name="Messages" Margin="10 10 10 10">
                 <RichTextLabel Text="[color=yellow][bold]Use a Message Board to send direct messages." />
                 <Label Text="Conversations:" StyleClasses="LabelKeyText"/>
                 <BoxContainer Access="Public" Orientation="Vertical" Name="ActiveConversations">
@@ -194,6 +194,6 @@
             </BoxContainer>
         </TabContainer>
     </BoxContainer>
-    
-    
+
+
 </DefaultWindow>

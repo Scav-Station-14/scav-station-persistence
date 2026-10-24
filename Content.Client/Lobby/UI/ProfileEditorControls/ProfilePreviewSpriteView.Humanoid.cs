@@ -248,7 +248,28 @@ public sealed partial class ProfilePreviewSpriteView
                 }
             }
         }
-
+        if (profile.Affiliation != null)
+        {
+            var universeOrigin = _prototypeManager.Index<AffiliationPrototype>(profile.Affiliation);
+            foreach (var effect in universeOrigin.Effects)
+            {
+                if (!_prototypeManager.Resolve(effect, out var effectProto))
+                    continue;
+                foreach (var kv in effectProto.Equipment)
+                {
+                    var itemType = kv.Value;
+                    if (inventorySys.TryUnequip(PreviewDummy, kv.Key, out var unequippedItem, silent: true, force: true, reparent: false))
+                    {
+                        EntMan.DeleteEntity(unequippedItem.Value);
+                    }
+                    if (itemType != string.Empty)
+                    {
+                        var item = EntMan.SpawnEntity(itemType, MapCoordinates.Nullspace);
+                        inventorySys.TryEquip(PreviewDummy, item, kv.Key, true, true);
+                    }
+                }
+            }
+        }
 
     }
 }

@@ -1,0 +1,13 @@
+- type: backgroundEffect
+  id: TraitOriginIvenmoth
+  description: "[color=green]You will gain the 'Employed by Tradehouse Ivenmoth' trait."
+  traits:
+    - OriginIvenmoth
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorRed
+  reputationGains:
+    Ivenmoth: 200
+  extraFactionRumors:
+    Ivenmoth: 1
+  codexEntries:
+    - Ivenmoth101

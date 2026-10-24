@@ -203,6 +203,7 @@ namespace Content.Server.GameTicking
                     if (character.UniverseOrigin != null) createdRecord.Origin = character.UniverseOrigin.Value;
                     if (character.Motive != null) createdRecord.Motive = character.Motive.Value;
                     if (character.TurningPoint != null) createdRecord.TurningPoint = character.TurningPoint.Value;
+                    if (character.Affiliation != null) createdRecord.Affiliation = character.Affiliation.Value;
 
                 }
             }

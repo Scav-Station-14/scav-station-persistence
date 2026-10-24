@@ -211,7 +211,8 @@ namespace Content.Server.Preferences.Managers
                 profile.Alignment,
                 profile.Origin,
                 profile.Motive,
-                profile.TurningPoint
+                profile.TurningPoint,
+                profile.Affiliation
             );
         }
 

@@ -1,0 +1,25 @@
+- type: affiliation
+  id: Unaffiliated
+  name: Unaffiliated
+  description: "You are not closely affiliated with any major governing bodies."
+
+- type: affiliation
+  id: Nanotrasen
+  name: Nanotrasen
+  description: "You are an employee of Nanotrasen, the largest megacorporation in the galaxy"
+  effects:
+    - TraitOriginGreen
+
+- type: affiliation
+  id: Syndicate
+  name: The Syndicate
+  description: "You are an operative, or at least an associate of, the Syndicate."
+  effects:
+    - TraitOriginPrecursor
+
+- type: affiliation
+  id: Ivenmoth
+  name: Tradehouse Ivenmoth
+  description: "You are employed by Tradehouse Ivenmoth, a smaller trading company that dominates the space around the Heavenly Veil."
+  effects:
+    - TraitOriginZenith #This is wrong but until they have their own gear

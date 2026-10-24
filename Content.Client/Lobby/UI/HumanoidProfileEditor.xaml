@@ -150,6 +150,17 @@
                             <Control MinHeight="50" />
                             <BoxContainer Orientation="Horizontal">
                                 <Label Text="This character comes from the " />
+                                <OptionButton Name="AffiliationButton" HorizontalAlignment="Right" />
+                            </BoxContainer>
+                            <BoxContainer Orientation="Vertical" >
+                                <Label Name="AffiliationTitleLabel" Text="" StyleClasses="LabelHeading" />
+                                <Control MinHeight="30" />
+                                <RichTextLabel Name="AffiliationDescLabel" HorizontalAlignment="Left"/>
+                                <RichTextLabel Name="AffiliationEffectsLabel" HorizontalAlignment="Left"/>
+                            </BoxContainer>
+                            <!--<Control MinHeight="50" />
+                            <BoxContainer Orientation="Horizontal">
+                                <Label Text="This character comes from the " />
                                 <OptionButton Name="BGButton" HorizontalAlignment="Right" />
                             </BoxContainer>
                             <BoxContainer Orientation="Vertical" >
@@ -168,12 +179,12 @@
                                 <Control MinHeight="30" />
                                 <RichTextLabel Name="MotiveDescLabel" HorizontalAlignment="Left"/>
                                 <RichTextLabel Name="MotiveEffectsLabel" HorizontalAlignment="Left"/>
-                            </BoxContainer>
+                            </BoxContainer>-->
                         </BoxContainer>
                     </ScrollContainer>
-              
+
                 </BoxContainer>
-                <BoxContainer Name="Journey" Orientation="Vertical" Margin="10">
+                <!--<BoxContainer Name="Journey" Orientation="Vertical" Margin="10">
                     <ScrollContainer VerticalExpand="True" HScrollEnabled="False" >
                         <BoxContainer Orientation="Vertical" >
                             <Label Text="The Threshold" StyleClasses="LabelHeading" />
@@ -197,7 +208,7 @@
                                            Name="NexusLoreLabel" />
                         </BoxContainer>
                     </ScrollContainer>
-                </BoxContainer>
+                </BoxContainer>-->
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Traits -->
                     <ScrollContainer VerticalExpand="True">
@@ -208,7 +219,7 @@
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>
-                
+
             </TabContainer>
         </BoxContainer>
         <!-- Right side -->
